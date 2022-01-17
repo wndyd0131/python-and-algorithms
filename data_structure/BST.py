@@ -36,7 +36,7 @@ class BST:
       else:
         return self._search_key(node.right, key)
       
-  def delete(self, node, key):
+  def delete(self, key):
     self.root, deleted = self._delete_key(self.root, key)
     return deleted
   
@@ -67,7 +67,35 @@ class BST:
       else:
         node.right, deleted = self._delete_key(node.right, key)
     return node, deleted        
+  
+  
+  def preorder(self, node=None, level = 1):
+    if level == 1:
+      node = self.root
+    if node != None:
+      print(node.key, end="")
+      self.preorder(node.left, level + 1)
+      self.preorder(node.right, level + 1)
       
+  def inorder(self, node=None, level = 1):
+    if level == 1:
+      node = self.root
+    if node != None:
+      self.inorder(node.left, level + 1)
+      print(node.key, end="")
+      self.inorder(node.right, level + 1)
+    
+  def postorder(self, node=None, level = 1):
+    if level == 1:
+      node = self.root
+    if node != None:
+      self.postorder(node.left, level + 1)
+      self.postorder(node.right, level + 1)
+      print(node.key, end="")
+      
+  def get_root(self):
+    return self.root
+  
 if __name__ == '__main__':
   tree = BST()
   tree.insert(4)
@@ -76,5 +104,8 @@ if __name__ == '__main__':
   tree.insert(9)
   tree.insert(5)
   
-  ret = tree.search(0)
-  print(ret)
+  tree.preorder()
+  print()
+  tree.inorder()
+  print()
+  tree.postorder()
