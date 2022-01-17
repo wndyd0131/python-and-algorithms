@@ -51,5 +51,4 @@ if __name__ == '__main__':
   a.append(5)
   a.delete(2)
   a.insert(1, 5)
-  a.insert(2, 3)
   a.print()
