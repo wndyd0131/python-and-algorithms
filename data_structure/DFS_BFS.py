@@ -17,11 +17,11 @@ def bfs(graph, v, visited):
   visited[v] = True
   
   while needed:
-    node = needed.popleft()
-    print(node, end = ' ')
-    for i in graph[node]:
+    node = needed.popleft() #팝
+    print(node, end = ' ') #출력
+    for i in graph[node]: #그래프 접근
       if not visited[i]:
-        needed.append(i)
+        needed.append(i) #큐에 넣기
         visited[i] = True
         
 
