@@ -1,21 +1,18 @@
+#모험가 길드 (공포도에 해당하는 그룹을 결성시켜 그룹의 최댓값을 찾는 문제)
 import sys
 num = int(sys.stdin.readline())
-data = sys.stdin.readline().split()
+data = list(map(int, sys.stdin.readline().split()))
+data.sort()
+
 result = 0
 cnt = 0
-MAX = int(data[0])
-prev = 0
 
-for i in range(1, len(data)):
-  d = int(data[i])
-  if d <= prev:
-    if cnt == MAX:
-      cnt = 0
-      result += 1
-      MAX = d
-    else:
-      cnt += 1
-  else:
-    MAX = d
-    cnt += 1
-  prev = d
+for i in data:
+  cnt += 1
+  if cnt >= i:
+    result += 1
+    cnt = 0
+  
+print(result)
+
+#정렬해서 오름차순으로 접해야 쉽게 풀 수 있는 문제
