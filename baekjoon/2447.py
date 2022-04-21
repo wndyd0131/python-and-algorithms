@@ -1,6 +1,6 @@
 def square(N):
   if N == 3:
-    print('***')
+    for i in range(N): print('*')
     print('* *')
     print('***')
     return
