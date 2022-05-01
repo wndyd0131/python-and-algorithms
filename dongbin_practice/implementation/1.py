@@ -1,34 +1,24 @@
 import sys
-matrix = []
-x = 0
-y = 0
+
+x,y = 1,1
+
+dx = [0,0,-1,1]
+dy = [-1,1,0,0]
+direction = ['L','R','U','D']
+#direction 배열 생성
 
 N = int(sys.stdin.readline().strip())
-direction = sys.stdin.readline().split()
+plans = sys.stdin.readline().split()
 
-for i in direction:
-  if i == 'R':
-    if y == N-1:
-      continue
-    else:
-      y += 1
-  elif i == 'L':
-    if y == 0:
-      continue
-    else:
-      y -= 1
-  elif i == 'U':
-    if x == 0:
-      continue
-    else:
-      x -= 1
-  elif i == 'D':
-    if x == N-1:
-      continue
-    else:
-      x += 1
-  else:
-    print("제대로 입력하세요")
-    break
-
-print(x+1, y+1)
+for plan in plans:
+  for i in range(len(direction)):
+    if plan == direction[i]: #plan과 direction배열과 비교해서 dx와 dy가 i에 따라 작동하도록 함
+      nx = x + dx[i]
+      ny = y + dy[i]
+    
+  if nx < 1 or ny < 1 or nx > N or ny > N: #배열을 초과하면 무시
+    continue
+  
+  x,y = nx, ny
+  
+print(x,y)
