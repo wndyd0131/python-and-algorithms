@@ -1,6 +1,6 @@
 import sys
 equation = sys.stdin.readline().strip()
-temp = '0'
+temp = ''
 sum = 0
 lst = []
 for i in range(len(equation)):
