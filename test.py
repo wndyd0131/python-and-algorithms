@@ -1,24 +1,19 @@
-string = ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
-def solution(record=["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]):
-    uidDict = dict()
-    answer = []
-    for i in record:
-        cmd = i.split()[0]
-        if cmd == 'Enter' or cmd == 'Change':
-            uid, nick = i.split()[1], i.split([2])
-            uidDict[uid] = nick
-    for i in record:
-        cmd = i.split()[0]
-        if cmd == 'Enter':
-            uid = i.split()[1]
-            answer.append(uidDict[uid]+"님이 들어왔습니다.")
-        elif cmd == 'Leave':
-            uid = i.split()[1]
-            answer.append(uidDict[uid]+"님이 나갔습니다.")
-        else:
-            continue
-    
-    return answer
+# itertools
+import itertools
+for i in itertools.product('ABCD', repeat=3):
+    print(i)
 
-print(solution())
-    
+# count()
+# cycle()
+# repeat()
+
+# product() 카티션 프로덕트
+# permutations() 순열
+# combinations() 조합
+
+
+
+# 백준 dfs 2개
+# 백준 구현 2개
+# 프로그래머스 2개
+# 나동빈 구현 2개
