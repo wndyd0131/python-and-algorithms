@@ -2,3 +2,11 @@ Brute Force
 sort
 binary search
 DP
+
+1725
+2156
+2468
+2473
+12895
+14501
+14502
