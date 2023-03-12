@@ -1,5 +1,4 @@
 import sys
-sys.setrecursionlimit(10 ** 6)
 
 def func(x, y, n):
   global cnt
@@ -26,9 +25,4 @@ def func(x, y, n):
 
 N, r, c = list(map(int, sys.stdin.readline().split()))
 cnt = 0
-# arr = [[0] * 2**N for _ in range(2**N)]
-if r == 0 and c == 0:
-  print(0)
-else:
-  func(0,0,2**N)
-  print(cnt)
+func(0,0,2**N)
