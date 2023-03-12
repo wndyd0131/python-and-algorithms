@@ -7,10 +7,12 @@ sys.setrecursionlimit(10 ** 6)
 
 def func(x, y, n):
   global cnt
-  if arr[r][c] == 1:
+  global passed
+  if passed == True:
     return
   if n == 0:
-    arr[x][y] = 1
+    if x == r and y == c:
+      passed = True
     cnt += 1
     return
   num = 2**n // 2
@@ -22,7 +24,8 @@ def func(x, y, n):
 
 N, r, c = list(map(int, sys.stdin.readline().split()))
 cnt = -1
-arr = [[0] * 2**N for _ in range(2**N)]
+passed = False
+# arr = [[0] * 2**N for _ in range(2**N)]
 if r == 0 and c == 0:
   print(0)
 else:
