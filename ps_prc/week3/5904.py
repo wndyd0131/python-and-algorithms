@@ -7,6 +7,7 @@ def bt(n, depth, b_len):
   new_length = 2*b_len + depth + 3
   
   if n < 4:
+    print(string[n-1])
     return
 
   if new_length < n:
