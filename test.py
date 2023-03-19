@@ -1,7 +1,7 @@
 # itertools
-import itertools
-for i in itertools.product('ABCD', repeat=3):
-    print(i)
+# import itertools
+# for i in itertools.product('ABCD', repeat=3):
+#     print(i)
 
 # count()
 # cycle()
