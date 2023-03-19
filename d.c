@@ -1,5 +1,6 @@
 #include <stdio.h>
 int main() {
-  int arr[30];
-  printf("%d", sizeof(int));
+  int a = 4;
+  int b = 2;
+  printf("%d", a / b);
 }
