@@ -26,3 +26,4 @@ solution(nums, N, K)
 
 for i in range(len(stack)):
   print(stack[i], end="")
+print()
