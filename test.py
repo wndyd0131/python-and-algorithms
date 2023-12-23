@@ -17,3 +17,10 @@
 # 백준 구현 2개
 # 프로그래머스 2개
 # 나동빈 구현 2개
+
+import sys
+print(sys.maxsize)
+print(4/2 - 1)
+arr = [5,1,2,3,4]
+print(arr[1:])
+print(arr[:1])
