@@ -25,3 +25,6 @@
 ### 배열 띄어서 출력하기
 # arr = [1,2,3,4]
 # print(*arr)
+
+### 재귀함수의 recursion depth의 제한을 완화하는 함수
+# setrecursionlimit()
