@@ -1,3 +1,5 @@
+import heapq
+
 inf = float('inf')
 node_num = 6
 
@@ -9,9 +11,10 @@ graph = [[0, 2, 5, 3, inf, inf],
      [inf, 9, 5, inf, 2, 0]
      ]
 
-d = []
+d = [float('inf') for _ in range(node_num)]
 v = [0 for _ in range(node_num)]
 
+# List
 def get_smallest_index(arr):
     smallest = float('inf')
     index = 0
@@ -21,26 +24,29 @@ def get_smallest_index(arr):
             index = i
     return index
 
+# Priority queue
 def dijkstra(start):
-    for i in graph[start]: # choose source node
-        d.append(i)
-    v[start] = True # set source node as visited
-    for i in range(node_num-1):
-        cur_idx = get_smallest_index(d)
-        v[cur_idx] = True
+    q = []
+    heapq.heappush(q, (0, start))
+    d[start] = 0
+    while q:
+        dist, cur_idx = heapq.heappop(q) # O(logV)
+        if d[cur_idx] < dist:
+            continue
         for j in range(node_num):
-            if not v[j]:
-                if d[cur_idx] + graph[cur_idx][j] < d[j]:
-                    d[j] = d[cur_idx] + graph[cur_idx][j]
+            if d[cur_idx] + graph[cur_idx][j] < d[j]:
+                d[j] = d[cur_idx] + graph[cur_idx][j]
+                heapq.heappush(q, (d[j], j)) # O(logV)
+
 
 dijkstra(0)
 for i in d:
     print(i)
 
 '''
-1. 출발 노드 설정
-2. 최단 거리 테이블 초기화
-3. 방문하지 않은 노드 중 최단 거리가 짧은 노드 선택
-4. 해당 노드의 이웃 노드로의 비용 계산
-3-4 반복
+1. Select source node
+2. Initialize distance table d[]
+3. Select the shortest distance node from table d[] that's not visited
+4. Perform relaxation for edges of the selected node
+5. Repeat 3-4 
 '''
