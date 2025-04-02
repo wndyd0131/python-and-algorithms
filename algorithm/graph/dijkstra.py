@@ -28,15 +28,17 @@ def get_smallest_index(arr):
 def dijkstra(start):
     q = []
     heapq.heappush(q, (0, start))
-    d[start] = 0
+    d[start] = 0 # table becomes [0, inf, inf, inf...]
     while q:
-        dist, cur_idx = heapq.heappop(q) # O(logV)
-        if d[cur_idx] < dist:
+        dist, cur_idx = heapq.heappop(q) # O(logV) # extractMin
+        if d[cur_idx] < dist: # if distance table has shorter path already, it means heappop returned visited vertex
             continue
         for j in range(node_num):
+            # if current distance + distance to vertex j < current distance to vertex j
             if d[cur_idx] + graph[cur_idx][j] < d[j]:
+                # then update current distance to j to shorter path
                 d[j] = d[cur_idx] + graph[cur_idx][j]
-                heapq.heappush(q, (d[j], j)) # O(logV)
+                heapq.heappush(q, (d[j], j)) # O(logV) # decreaseKey
 
 
 dijkstra(0)

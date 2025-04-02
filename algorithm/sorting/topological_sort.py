@@ -36,3 +36,5 @@ in_degree[6] += 1
 d[6].append(7)
 in_degree[7] += 1
 topological_sort()
+
+# O(V + E)
