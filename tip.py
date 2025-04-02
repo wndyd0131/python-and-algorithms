@@ -28,3 +28,8 @@
 
 ### 재귀함수의 recursion depth의 제한을 완화하는 함수
 # setrecursionlimit()
+
+from collections import Counter
+nums = [9,4,1,7,8,1,3,6,5,2]
+counter = Counter(nums)
+print(counter)
