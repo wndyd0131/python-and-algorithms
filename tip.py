@@ -37,3 +37,7 @@ print(counter)
 from collections import defaultdict
 d = defaultdict(int)
 print(d['a'])
+
+a = dict()
+a['ice'] = True
+print(a)
