@@ -1,3 +1,5 @@
+# 242. Valid Anagram
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         '''
@@ -9,8 +11,8 @@ class Solution:
             - if equals, continue
             - else, return false
 
-        Time Complexity: O(s+t)
-        Space Complexity: O(s+t)
+        Time complexity: O(s+t)
+        Space complexity: O(s+t)
 
         Result: Success
         '''
