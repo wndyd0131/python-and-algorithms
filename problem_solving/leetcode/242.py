@@ -1,21 +1,21 @@
 # 242. Valid Anagram
 
 class Solution:
+    '''
+    Approach:
+    0. validate count
+    1. make two frequency maps: map1, map2
+    2. count each alphabet of s and t, respectively
+    3. iterate s or t, and compare key:value of map1 and map2
+        - if equals, continue
+        - else, return false
+
+    Time complexity: O(s+t)
+    Space complexity: O(s+t)
+
+    Result: Success
+    '''
     def isAnagram(self, s: str, t: str) -> bool:
-        '''
-        Approach:
-        0. validate count
-        1. make two frequency maps: map1, map2
-        2. count each alphabet of s and t, respectively
-        3. iterate s or t, and compare key:value of map1 and map2
-            - if equals, continue
-            - else, return false
-
-        Time complexity: O(s+t)
-        Space complexity: O(s+t)
-
-        Result: Success
-        '''
         from collections import defaultdict
         freq_map1 = defaultdict(int)
         freq_map2 = defaultdict(int)
