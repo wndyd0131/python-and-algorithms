@@ -41,3 +41,9 @@ print(d['a'])
 a = dict()
 a['ice'] = True
 print(a)
+
+import heapq
+max_heap = []
+heapq.heappush(max_heap, 1)
+
+max_val = heapq.heappop(max_heap)
