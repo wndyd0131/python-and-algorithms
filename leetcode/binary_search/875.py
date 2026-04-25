@@ -88,3 +88,29 @@ class Solution: # Optimized Solution (faster due to math.ceil())
             else:
                 l = k + 1
         return res
+      
+class Solution: # Optimized Solution (faster due to (pile + k - 1) / k)
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        '''
+        Algorithm:
+          starting from mid
+            assume k = mid, compute (using (pile + k - 1) / k), test if result == target
+            try eating all the bananas by looping -> count the loop -> if count == h then return mid
+                - divide by numbers and if mod > 0 then + 1
+                -> if count > h then too slow so left = mid + 1, if count <= h then too fast so right = mid - 1
+        Time Complexity: O(log(max(piles)) * len(piles))
+        Space Complexity: O(1)
+        '''
+        l, r = 1, max(piles)
+        res = r
+        while l <= r:
+            k = (l + r) // 2
+            hours = 0
+            for pile in piles:
+                hours += (pile + k - 1) / k
+            if hours <= h:
+                res = min(res, k)
+                r = k - 1
+            else:
+                l = k + 1
+        return res
